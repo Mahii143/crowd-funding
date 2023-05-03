@@ -1,5 +1,4 @@
 import React from 'react'
-// import { ethers } from 'ethers';
 import Contract from '../Contract';
 const Connect = require('../Connect');
 
@@ -16,7 +15,7 @@ async function buyTheProduct(txnParams) {
     const contract = new Contract();
     const fundTx = await contract.doBuy(txnParams);
     const fundReceipt = await fundTx.wait(1);
-    console.log('Fund transaction receipt:', fundReceipt);
+    console.log('Buy transaction receipt:', fundReceipt);
 }
 
 
@@ -92,11 +91,11 @@ export default function ViewComponent(props) {
                 </span>
                 <img src="" alt="img1" />
             </div>
-            <input type="number" id='amount'onChange={handleChange}/>
+            <input type="number" id='amount' className='amount-field' placeholder='Donation amount' onChange={handleChange}/>
             <button class="button-6" id='fund' onClick={ handleSubmit }>Fund</button>
 
 
-            <input type="number" id='amount'onChange={handleChange}/>
+            <input type="number" id='amount' className='amount-field' placeholder='buying amount' onChange={handleChange}/>
             <button class="button-6" id='buy' onClick={ handleSubmit }>Buy</button>
         </div>
     )
